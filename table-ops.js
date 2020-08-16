@@ -4,27 +4,27 @@ AWS.config.update({ region: "us-west-2" });
 const dynamodb = new AWS.DynamoDB();
 
 // LIST TABLES
-// dynamodb.listTables({}, (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(data);
-//   }
-// });
+dynamodb.listTables({}, (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
 
 // DESCRIBE TABLE
-// dynamodb.describeTable(
-//   {
-//     TableName: "td_notes_sdk",
-//   },
-//   (err, data) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(JSON.stringify(data, null, 2));
-//     }
-//   }
-// );
+dynamodb.describeTable(
+  {
+    TableName: "td_notes_sdk",
+  },
+  (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(JSON.stringify(data, null, 2));
+    }
+  }
+);
 
 // CREATE TABLE
 dynamodb.createTable(
@@ -53,33 +53,33 @@ dynamodb.createTable(
 );
 
 // UPDATE TABLE
-// dynamodb.updateTable(
-//   {
-//     TableName: "td_notes_sdk",
-//     ProvisionedThroughput: {
-//       ReadCapacityUnits: 2,
-//       WriteCapacityUnits: 1, // Cannot omit WriteCapacityUnits while updating
-//     },
-//   },
-//   (err, data) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(JSON.stringify(data, null, 2));
-//     }
-//   }
-// );
+dynamodb.updateTable(
+  {
+    TableName: "td_notes_sdk",
+    ProvisionedThroughput: {
+      ReadCapacityUnits: 2,
+      WriteCapacityUnits: 1, // Cannot omit WriteCapacityUnits while updating
+    },
+  },
+  (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(JSON.stringify(data, null, 2));
+    }
+  }
+);
 
 // DELETE TABLE
-// dynamodb.deleteTable(
-//   {
-//     TableName: "td_notes_sdk",
-//   },
-//   (err, data) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(JSON.stringify(data, null, 2));
-//     }
-//   }
-// );
+dynamodb.deleteTable(
+  {
+    TableName: "td_notes_sdk",
+  },
+  (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(JSON.stringify(data, null, 2));
+    }
+  }
+);
