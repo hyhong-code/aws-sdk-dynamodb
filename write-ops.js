@@ -32,7 +32,7 @@ docClient.update(
       user_id: "sdfjsdfehhwkf",
       timestamp: 2,
     },
-    UpdateExpression: "set #t = :t",
+    UpdateExpression: "set #t = :t", // To avoid clash with reserved keyword
     ExpressionAttributeNames: {
       "#t": "title",
     },
